@@ -29,6 +29,7 @@ export const CardDetails = styled.div`
 
 export const CardItem = styled.span`
   color: #fff;
+  font-weight: 700;
 `;
 
 export const CardImage = styled.img`

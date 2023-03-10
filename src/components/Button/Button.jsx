@@ -2,9 +2,11 @@ import React from "react";
 
 import { ButtonContainer } from "./Button.Elements";
 
-const Button = ({ text, handleTeste }) => {
+const Button = ({ text, handleClick, status }) => {
   return (
-    <ButtonContainer onClick={() => handleTeste()}>{text}</ButtonContainer>
+    <ButtonContainer status={status} onClick={() => handleClick()}>
+      {text}
+    </ButtonContainer>
   );
 };
 

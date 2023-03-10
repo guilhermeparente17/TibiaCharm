@@ -4,7 +4,8 @@ export const ButtonContainer = styled.button`
   width: 100%;
   height: 50px;
   border-radius: 6px;
-  background-color: #a60452;
+  /* background-color: #a60452; */
+  background-color: ${(props) => (props.status ? "#181B2C" : "#a60452")};
   color: #fff;
   border: 0;
   font-size: 16px;

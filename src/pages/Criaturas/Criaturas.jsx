@@ -10,10 +10,13 @@ import {
 import Card from "../../components/Card/Card";
 import Search from "../../components/Search/Search";
 import criaturasExpand from "../../data/criaturasExpand";
+import { useSelector } from "react-redux";
+import TibiaSelectors from "../../store/selectors";
 
 const Criaturas = () => {
   const criaturasExpandidas = criaturasExpand;
   const [valueSearch, setValueSearch] = useState("");
+  const charm = useSelector(TibiaSelectors.charm);
 
   const handleTeste = () => {};
 
@@ -32,7 +35,7 @@ const Criaturas = () => {
           onChange={setValueSearch}
           handleTeste={handleTeste}
         />
-        <Span>Seu plano rúnico: 1000</Span>
+        <Span>Seu plano rúnico: {charm}</Span>
       </CridHeader>
 
       <CridCards>
