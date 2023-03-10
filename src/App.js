@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+// import { Footer } from "./components/Footer/Footer";
+import { Header } from "./components/Header/Header";
+import GlobalStyle from "./GlobalStyle";
+import { Home } from "./pages/Home/Home";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Criaturas from "./pages/Criaturas/Criaturas";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/criaturas",
+    element: <Criaturas />,
+  },
+]);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <GlobalStyle />
+      <Header />
+
+      <RouterProvider router={router} />
+      {/* <Home /> */}
     </div>
   );
 }
