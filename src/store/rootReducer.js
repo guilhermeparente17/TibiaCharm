@@ -7,6 +7,10 @@ export const TibiaActions = {
     type: ActionTypes.CHARM,
     payload: payload,
   }),
+  zerarCharm: (payload) => ({
+    type: ActionTypes.ZERAR_CHARM,
+    payload: payload,
+  }),
 };
 
 export const counterReducer = (state = initialState, { type, payload }) => {
@@ -15,6 +19,10 @@ export const counterReducer = (state = initialState, { type, payload }) => {
       return {
         charm: state.charm + payload,
       };
+    case ActionTypes.ZERAR_CHARM:
+      return {
+        charm: payload,
+      };
     default:
       return state;
   }
@@ -22,6 +30,7 @@ export const counterReducer = (state = initialState, { type, payload }) => {
 
 const ActionTypes = {
   CHARM: "CHARM",
+  ZERAR_CHARM: "ZERAR_CHARM",
 };
 
 export default counterReducer;

@@ -35,8 +35,6 @@ const Card = ({ item }) => {
     dispatch(TibiaActions.setCharm(payload));
   };
 
-  console.log(item);
-
   return (
     <CardContainer>
       {/* <CardImage src={item.name === "Amazon" && Amazon} /> */}

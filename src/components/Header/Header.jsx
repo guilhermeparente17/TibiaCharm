@@ -24,7 +24,9 @@ export const Header = () => {
           <HeaderItem>
             <HeaderLink href="/runas">Runas</HeaderLink>
           </HeaderItem>
-          <HeaderItem>Plano Rúnico</HeaderItem>
+          <HeaderItem>
+            <HeaderLink href="/plano_runico">Plano Rúnico</HeaderLink>
+          </HeaderItem>
           <HeaderItem>Equipamentos</HeaderItem>
           <HeaderItem>Sets</HeaderItem>
         </HeaderList>

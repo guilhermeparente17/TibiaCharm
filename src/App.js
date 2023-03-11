@@ -5,6 +5,7 @@ import { Home } from "./pages/Home/Home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Criaturas from "./pages/Criaturas/Criaturas";
 import { Runas } from "./pages/Runas/Runas";
+import PR from "./pages/PlanoRunico/PR";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/runas",
     element: <Runas />,
+  },
+  {
+    path: "/plano_runico",
+    element: <PR />,
   },
 ]);
 
