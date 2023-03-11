@@ -21,7 +21,9 @@ export const Header = () => {
           <HeaderItem>
             <HeaderLink href="/criaturas">Criaturas</HeaderLink>
           </HeaderItem>
-          <HeaderItem>Runas</HeaderItem>
+          <HeaderItem>
+            <HeaderLink href="/runas">Runas</HeaderLink>
+          </HeaderItem>
           <HeaderItem>Plano Rúnico</HeaderItem>
           <HeaderItem>Equipamentos</HeaderItem>
           <HeaderItem>Sets</HeaderItem>

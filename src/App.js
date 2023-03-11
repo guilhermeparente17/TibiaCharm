@@ -4,6 +4,7 @@ import GlobalStyle from "./GlobalStyle";
 import { Home } from "./pages/Home/Home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Criaturas from "./pages/Criaturas/Criaturas";
+import { Runas } from "./pages/Runas/Runas";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
   {
     path: "/criaturas",
     element: <Criaturas />,
+  },
+  {
+    path: "/runas",
+    element: <Runas />,
   },
 ]);
 
