@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CR from "../../components/CardRunas/CR";
 import Charms from "../../data/Charms";
@@ -19,11 +19,25 @@ import {
 const PR = () => {
   const charm = useSelector(TibiaSelectors.charm);
   const dispatch = useDispatch();
-
-  console.log(charm);
+  const [charms, setCharms] = useState(Charms);
 
   const handleZerarCharm = () => {
     dispatch(TibiaActions.zerarCharm(0));
+  };
+
+  const [myRunes, setMyRunes] = useState([]);
+
+  const addRune = (rune) => {
+    dispatch(TibiaActions.add_Charm(-rune.cost));
+    const newArray = charms.filter((item) => item.name !== rune.name);
+    setCharms(newArray);
+    setMyRunes([...myRunes, rune]);
+  };
+
+  const removeRune = (rune) => {
+    dispatch(TibiaActions.add_Charm(+rune.cost));
+    setMyRunes(myRunes.filter((item) => item !== rune));
+    setCharms([...charms, rune]);
   };
 
   return (
@@ -42,7 +56,9 @@ const PR = () => {
 
       <PROptions>
         <PRPontosContainer>
-          <PRPontos>Pontos Rúnicos: {charm}</PRPontos>
+          <PRPontos>
+            Pontos Rúnicos: <span>{charm}</span>
+          </PRPontos>
           <PRButton onClick={() => handleZerarCharm()}>Zerar</PRButton>
         </PRPontosContainer>
 
@@ -50,8 +66,24 @@ const PR = () => {
       </PROptions>
 
       <ListRunas>
-        {Charms.map((item) => (
-          <CR item={item} />
+        {myRunes.map((item, idx) => (
+          <CR
+            key={idx}
+            item={item}
+            onClick={() => removeRune(item)}
+            podeComprar={true}
+          />
+        ))}
+      </ListRunas>
+
+      <ListRunas>
+        {charms.map((item, idx) => (
+          <CR
+            key={idx}
+            item={item}
+            onClick={() => addRune(item)}
+            podeComprar={charm >= item.cost}
+          />
         ))}
       </ListRunas>
     </PRContainer>

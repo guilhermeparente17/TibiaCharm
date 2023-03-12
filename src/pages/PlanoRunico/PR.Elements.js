@@ -11,12 +11,28 @@ export const PRContainer = styled.div`
 
 export const PRHeader = styled.div`
   width: 90%;
-  max-height: 160px;
   height: 90px;
   background-color: #2c3153;
   border-radius: 20px;
   padding: 25px;
   margin: 20px 0;
+
+  @media screen and (max-width: 1630px) {
+    height: 180;
+  }
+
+  @media screen and (max-width: 1170px) {
+    height: 200px;
+  }
+
+  @media screen and (max-width: 700px) {
+    height: 470px;
+    width: 300px;
+  }
+
+  @media screen and (max-width: 480px) {
+    height: 500px;
+  }
 `;
 
 export const PRText = styled.span`
@@ -32,6 +48,11 @@ export const PROptions = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export const PRPontosContainer = styled.div`
@@ -40,6 +61,11 @@ export const PRPontosContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+
+  @media screen and (max-width: 700px) {
+    justify-content: center;
+    margin-bottom: 20px;
+  }
 `;
 
 export const PRPontos = styled.span`
@@ -47,6 +73,18 @@ export const PRPontos = styled.span`
   border: 1px solid #a60452;
   padding: 10px 30px;
   border-radius: 20px;
+
+  span {
+    font-size: 23px;
+    font-weight: bold;
+    color: #eb097a;
+    text-shadow: 1px 3px 2px black;
+  }
+
+  @media screen and (max-width: 700px) {
+    font-size: 18px;
+    padding: 10px 25px;
+  }
 `;
 
 export const PRButton = styled.button`
@@ -92,5 +130,20 @@ export const ListRunas = styled.div`
   grid-template-columns: repeat(7, 1fr);
   justify-content: center;
   align-items: center;
-  margin-top: 130px;
+  margin-top: 100px;
+
+  @media screen and (max-width: 1630px) {
+    grid-template-columns: repeat(5, 1fr);
+    width: 80%;
+  }
+
+  @media screen and (max-width: 1170px) {
+    grid-template-columns: repeat(3, 1fr);
+    width: 70%;
+  }
+
+  @media screen and (max-width: 700px) {
+    grid-template-columns: repeat(1, 1fr);
+    width: 50%;
+  }
 `;

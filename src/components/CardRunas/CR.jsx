@@ -22,7 +22,7 @@ import Zap from "../../assets/gifs/Zap_Icon.gif";
 import { useSelector } from "react-redux";
 import TibiaSelectors from "../../store/selectors";
 
-const CR = ({ item }) => {
+const CR = ({ item, onClick, podeComprar, ...rest }) => {
   const handleRunasImg = () => {
     if (item.name === "Wound") {
       return Wound;
@@ -36,7 +36,7 @@ const CR = ({ item }) => {
       return Cripple;
     } else if (item.name === "Cripple") {
       return Cripple;
-    } else if (item.name === "Curse (Charm)") {
+    } else if (item.name === "Curse") {
       return Curse;
     } else if (item.name === "Divine Wrath") {
       return Divine_Wrath;
@@ -70,9 +70,14 @@ const CR = ({ item }) => {
   const charm = useSelector(TibiaSelectors.charm);
 
   return (
-    <CRContainer charmPoints={charm} valor={item.cost}>
+    <CRContainer
+      {...rest}
+      onClick={() => podeComprar && onClick()}
+      charmPoints={charm}
+      valor={item.cost}
+      podeComprar={podeComprar}>
       <CRImage src={handleRunasImg()} />
-      <CRName>{item.name === "Curse (Charm)" ? "Curse" : item.name}</CRName>
+      <CRName>{item.name}</CRName>
       <CRValue>{item.cost}</CRValue>
     </CRContainer>
   );

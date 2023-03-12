@@ -46,8 +46,8 @@ export const Runas = () => {
       <RunasTitle>Runas</RunasTitle>
 
       <RunasList>
-        {Charms.map((item) => (
-          <CardCharms item={item} />
+        {Charms.map((item, idx) => (
+          <CardCharms key={idx} item={item} />
         ))}
       </RunasList>
     </RunasContainer>

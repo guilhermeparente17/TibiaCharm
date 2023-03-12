@@ -4,7 +4,9 @@ export const CRContainer = styled.div`
   width: 150px;
   height: 150px;
   background-color: ${(props) =>
-    props.charmPoints >= props.valor ? "#2C3153" : "#111528"};
+    props.charmPoints >= props.valor || props.podeComprar
+      ? "#2C3153"
+      : "#111528"};
   margin-bottom: 30px;
   padding: 20px;
   display: flex;
@@ -14,10 +16,10 @@ export const CRContainer = styled.div`
   border-radius: 16px;
   transition: 0.2s ease-in-out;
 
-  cursor: pointer;
+  cursor: ${(props) => props.podeComprar && "pointer"};
 
   &:hover {
-    background-color: #111528;
+    opacity: ${(props) => (props.podeComprar ? "0.7" : "1")};
     transition: 0.2s ease-in-out;
   }
 `;

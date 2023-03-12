@@ -30,6 +30,14 @@ export const Span = styled.span`
   border: 1px solid #a60452;
   padding: 10px 30px;
   border-radius: 20px;
+  font-weight: bold;
+
+  span {
+    font-size: 23px;
+    font-weight: bold;
+    color: #eb097a;
+    text-shadow: 1px 3px 2px black;
+  }
 `;
 
 export const CridCards = styled.div`

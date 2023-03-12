@@ -12,10 +12,22 @@ export const CCContainer = styled.div`
   padding: 20px;
 `;
 
-export const CCImg = styled.img``;
+export const CCImg = styled.img`
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+`;
 
 export const CCName = styled.span`
   font-size: 20px;
   color: #fff;
   font-weight: 700;
+  margin-right: 20px;
+
+  span {
+    font-size: 23px;
+    font-weight: bold;
+    color: #eb097a;
+    text-shadow: 1px 3px 2px black;
+  }
 `;

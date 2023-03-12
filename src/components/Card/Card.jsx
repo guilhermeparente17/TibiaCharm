@@ -32,12 +32,11 @@ const Card = ({ item }) => {
   };
 
   const handleCharm = (payload) => {
-    dispatch(TibiaActions.setCharm(payload));
+    dispatch(TibiaActions.add_Charm(payload));
   };
 
   return (
     <CardContainer>
-      {/* <CardImage src={item.name === "Amazon" && Amazon} /> */}
       <CardImage src={imagesCreatures(item.name)} />
 
       <CardTitle>{item.name}</CardTitle>

@@ -35,7 +35,9 @@ const Criaturas = () => {
           onChange={setValueSearch}
           handleTeste={handleTeste}
         />
-        <Span>Seu plano rúnico: {charm}</Span>
+        <Span>
+          Seu plano rúnico: <span>{charm}</span>
+        </Span>
       </CridHeader>
 
       <CridCards>
