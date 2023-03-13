@@ -12,15 +12,20 @@ import Search from "../../components/Search/Search";
 import criaturasExpand from "../../data/criaturasExpand";
 import { useSelector } from "react-redux";
 import TibiaSelectors from "../../store/selectors";
+import ImagesCreatures from "../../data/ImagesCreatures";
 
 const Criaturas = () => {
-  const criaturasExpandidas = criaturasExpand;
   const [valueSearch, setValueSearch] = useState("");
   const charm = useSelector(TibiaSelectors.charm);
 
-  const handleTeste = () => {};
+  const criaturasComImagens = criaturasExpand.map((criatura) => {
+    const url = ImagesCreatures.find(
+      (url) => url?.name === criatura?.name
+    )?.image_url;
+    return { ...criatura, url };
+  });
 
-  const filteredItems = criaturasExpandidas.filter(
+  const filteredItems = criaturasComImagens.filter(
     (item) =>
       item.name.toLowerCase().includes(valueSearch.toLowerCase()) &&
       item.bestiarylevel !== undefined
@@ -30,11 +35,7 @@ const Criaturas = () => {
     <CriatContainer>
       <CridHeader>
         <Title>Criaturas</Title>
-        <Search
-          value={valueSearch}
-          onChange={setValueSearch}
-          handleTeste={handleTeste}
-        />
+        <Search value={valueSearch} onChange={setValueSearch} />
         <Span>
           Seu plano rúnico: <span>{charm}</span>
         </Span>
@@ -42,7 +43,7 @@ const Criaturas = () => {
 
       <CridCards>
         {filteredItems.map((item, idx) => (
-          <Card key={idx} item={item} index={idx} />
+          <Card withButton={true} key={idx} item={item} index={idx} />
         ))}
       </CridCards>
     </CriatContainer>

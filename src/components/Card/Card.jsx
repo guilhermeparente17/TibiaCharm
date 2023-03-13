@@ -2,7 +2,6 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { TibiaActions } from "../../store/rootReducer";
 import Button from "../Button/Button";
-import imagesCreatures from "../ImagesCreatues/ImagesCreatures";
 
 import {
   CardContainer,
@@ -12,7 +11,13 @@ import {
   CardImage,
 } from "./Card.Elements";
 
-const Card = ({ item }) => {
+const Card = ({
+  item,
+  height,
+  withButton,
+  handleCloseModal,
+  handleOpenModal,
+}) => {
   const dispatch = useDispatch();
 
   const charms = (dificuldade) => {
@@ -36,22 +41,28 @@ const Card = ({ item }) => {
   };
 
   return (
-    <CardContainer>
-      <CardImage src={imagesCreatures(item.name)} />
+    <CardContainer height={height}>
+      <CardImage src={item?.url} />
 
       <CardTitle>{item.name}</CardTitle>
 
-      <CardDetails>
-        <CardItem>Hp: {item.hp}</CardItem>
-        <CardItem>charm: {charms(item.bestiarylevel)}</CardItem>
-        <CardItem>Xp 100%: {item.exp}</CardItem>
-        <CardItem>Xp 150%: {parseInt(item.exp * 1.5)}</CardItem>
-      </CardDetails>
+      {withButton && (
+        <CardDetails>
+          <CardItem>Hp: {item.hp}</CardItem>
+          <CardItem>charm: {charms(item.bestiarylevel)}</CardItem>
+          <CardItem>Xp 100%: {item.exp}</CardItem>
+          <CardItem>Xp 150%: {parseInt(item.exp * 1.5)}</CardItem>
+        </CardDetails>
+      )}
 
-      <Button
-        text="Adicionar ao plano rúnico"
-        handleClick={() => handleCharm(charms(item.bestiarylevel))}
-      />
+      {withButton ? (
+        <Button
+          text="Adicionar ao plano rúnico"
+          handleClick={() => handleCharm(charms(item.bestiarylevel))}
+        />
+      ) : (
+        <Button handleClick={() => handleOpenModal()} text="Visualizar" />
+      )}
     </CardContainer>
   );
 };

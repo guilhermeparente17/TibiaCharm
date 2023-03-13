@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const CardContainer = styled.div`
   width: 250px;
-  height: 300px;
+  /* height: 300px; */
+  height: ${(props) => (props.height ? props?.height : "300px")};
   background-color: #2c3153;
   border-radius: 20px;
   display: flex;
@@ -33,9 +34,8 @@ export const CardItem = styled.span`
 `;
 
 export const CardImage = styled.img`
-  width: 130px;
+  width: 100px;
   background-position: center;
   background-size: cover;
   margin-bottom: 30px;
-  margin-top: -35px;
 `;

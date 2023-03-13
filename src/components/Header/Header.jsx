@@ -27,7 +27,9 @@ export const Header = () => {
           <HeaderItem>
             <HeaderLink href="/plano_runico">Plano Rúnico</HeaderLink>
           </HeaderItem>
-          <HeaderItem>Equipamentos</HeaderItem>
+          <HeaderItem>
+            <HeaderLink href="/equipamentos">Equipamentos</HeaderLink>
+          </HeaderItem>
           <HeaderItem>Sets</HeaderItem>
         </HeaderList>
       </HeaderNav>
