@@ -117,12 +117,28 @@ export const EquipMoreItem = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  margin-bottom: 50px;
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
 `;
 
-export const EquipImage = styled.div`
-  width: 250px;
-  height: 250px;
-  background-color: red;
+export const EquipImage = styled.img`
+  width: 200px;
+  height: 200px;
+  margin-top: 20px;
 `;
 
 export const EquipDrops = styled.div`
@@ -138,6 +154,5 @@ export const EquipDrops = styled.div`
 export const EquipFooter = styled.div`
   width: 100%;
   height: 30%;
-  background-color: tomato;
   margin-top: 20px;
 `;

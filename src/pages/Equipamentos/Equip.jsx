@@ -87,12 +87,14 @@ export const Equip = () => {
               {selectItem.imbueslots && (
                 <EquipName>Slot de Imbui: {selectItem.imbueslots}</EquipName>
               )}
-              {selectItem.attrib && (
+              {selectItem.resist && (
+                <EquipName>Resistencia: {selectItem.resist}</EquipName>
+              )}
+              {(selectItem.attrib || selectItem.resist) && (
                 <EquipName>
-                  Atributos: {selectItem.attrib},{" "}
-                  {selectItem?.resist && selectItem?.resist}{" "}
+                  Atributos: {selectItem.attrib}{" "}
                   {selectItem.hpleech_am &&
-                    `quantidade de life leech: ${selectItem.hpleech_am},`}{" "}
+                    `, quantidade de life leech: ${selectItem.hpleech_am},`}{" "}
                   {selectItem.hpleech_am &&
                     `chance de life leech: ${selectItem.hpleech_ch}.`}{" "}
                 </EquipName>
@@ -108,9 +110,6 @@ export const Equip = () => {
                   Comercializado no market:{" "}
                   {selectItem.marketable ? "Sim" : "Não"}
                 </EquipName>
-              )}
-              {selectItem.notes && (
-                <EquipName>Notas: {selectItem.notes}</EquipName>
               )}
               {selectItem?.damagerange && (
                 <EquipName>Dano Base: {selectItem.damagerange}</EquipName>
@@ -128,7 +127,7 @@ export const Equip = () => {
           </EquipDetailItem>
 
           <EquipMoreItem>
-            <EquipImage />
+            <EquipImage src={selectItem.image_url} />
             <EquipDrops>
               {selectItem.buyfrom && (
                 <EquipName>Compra de: {selectItem.buyfrom}</EquipName>
@@ -148,7 +147,10 @@ export const Equip = () => {
           </EquipMoreItem>
         </EquipDetails>
 
-        <EquipFooter>mais informações</EquipFooter>
+        <EquipFooter>
+          {" "}
+          {selectItem.notes && <EquipName>Notas: {selectItem.notes}</EquipName>}
+        </EquipFooter>
       </Modal>
     </EquipContainer>
   );

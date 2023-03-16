@@ -34,7 +34,7 @@ export const CardItem = styled.span`
 `;
 
 export const CardImage = styled.img`
-  width: 100px;
+  width: 80px;
   background-position: center;
   background-size: cover;
   margin-bottom: 30px;

@@ -30,7 +30,9 @@ export const Header = () => {
           <HeaderItem>
             <HeaderLink href="/equipamentos">Equipamentos</HeaderLink>
           </HeaderItem>
-          <HeaderItem>Sets</HeaderItem>
+          <HeaderItem>
+            <HeaderLink href="/sets">Sets</HeaderLink>
+          </HeaderItem>
         </HeaderList>
       </HeaderNav>
     </HeaderContainer>

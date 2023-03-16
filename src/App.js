@@ -7,6 +7,7 @@ import Criaturas from "./pages/Criaturas/Criaturas";
 import { Runas } from "./pages/Runas/Runas";
 import PR from "./pages/PlanoRunico/PR";
 import { Equip } from "./pages/Equipamentos/Equip";
+import Sets from "./pages/Sets/Sets";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "/equipamentos",
     element: <Equip />,
+  },
+  {
+    path: "/sets",
+    element: <Sets />,
   },
 ]);
 
