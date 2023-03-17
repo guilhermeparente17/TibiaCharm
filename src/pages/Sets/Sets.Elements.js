@@ -58,8 +58,16 @@ export const SetConjunto = styled.div`
 `;
 
 export const SetHeader = styled.img`
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
+  border: 1px solid #a60452;
+  cursor: pointer;
+  margin: 0px 20px;
+`;
+
+export const SetAmulet = styled.img`
+  width: 150px;
+  height: 150px;
   border: 1px solid #a60452;
   cursor: pointer;
 `;
@@ -89,19 +97,39 @@ export const SetDef = styled.img`
   width: 150px;
   height: 200px;
   border: 1px solid #a60452;
+  cursor: pointer;
 `;
 
 export const SetLeg = styled.img`
   width: 150px;
   height: 200px;
-  margin-bottom: 20px;
+  margin: 0px 20px 10px;
+
   border: 1px solid #a60452;
+  cursor: pointer;
+`;
+
+export const SetRing = styled.img`
+  width: 150px;
+  height: 200px;
+  margin-bottom: 10px;
+  border: 1px solid #a60452;
+  cursor: pointer;
+`;
+
+export const SetElement = styled.img`
+  width: 150px;
+  height: 200px;
+  margin-bottom: 10px;
+  border: 1px solid #a60452;
+  cursor: pointer;
 `;
 
 export const SetShoes = styled.img`
   width: 150px;
   height: 150px;
   border: 1px solid #a60452;
+  cursor: pointer;
 `;
 
 export const SetAtrib = styled.div`
@@ -141,10 +169,18 @@ export const SetSpan = styled.span`
   font-weight: bold;
 `;
 
-export const SetArmorDiv = styled.div`
+export const SetDivPadrao = styled.div`
   width: 150px;
-  height: 200px;
+  height: ${(props) => (props.height ? `${props.height}` : "200px")};
   border: 1px solid #a60452;
   cursor: pointer;
-  margin: 10px 20px;
+  margin: ${(props) => `${props.margin}`};
+`;
+
+export const SetWrap = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
