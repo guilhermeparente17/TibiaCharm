@@ -42,7 +42,7 @@ const Card = ({
 
   return (
     <CardContainer height={height}>
-      <CardImage src={item.image_url} />
+      <CardImage src={item.image_url || item.url} />
 
       <CardTitle>{item.name}</CardTitle>
 

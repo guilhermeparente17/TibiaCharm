@@ -37,8 +37,18 @@ export const Equip = () => {
     setModalIsOpen(false);
   };
 
-  const filteredItems = Items.filter((item) =>
-    item.name.toLowerCase().includes(valueSearch.toLowerCase())
+  const filteredItems = Items.filter(
+    (item) =>
+      item.name.toLowerCase().includes(valueSearch.toLowerCase()) &&
+      item.primarytype !== "Quest Items" &&
+      item.primarytype !== "Healing Runes" &&
+      item.primarytype !== "Dolls and Bears" &&
+      item.primarytype !== "Tools" &&
+      item.primarytype !== "Creature Products" &&
+      item.primarytype !== "Liquids" &&
+      item.primarytype !== "Metals" &&
+      item.primarytype !== "Musical Instruments" &&
+      item.primarytype !== "Valuables"
   );
 
   const limitedArray = filteredItems.slice(0, 54);

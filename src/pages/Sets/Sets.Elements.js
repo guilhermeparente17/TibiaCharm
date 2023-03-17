@@ -55,6 +55,7 @@ export const SetConjunto = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 20px;
 `;
 
 export const SetHeader = styled.img`
