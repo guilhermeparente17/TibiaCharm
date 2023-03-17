@@ -137,7 +137,7 @@ export const SetAtrib = styled.div`
   width: 400px;
   height: 700px;
   background-color: #232741;
-  margin-top: 10px;
+  margin-top: 0px;
   padding: 10px;
   display: flex;
   justify-content: flex-start;
@@ -160,14 +160,15 @@ export const Item = styled.div`
 export const SetSpan = styled.span`
   width: 100%;
   height: 50px;
-  border: 1px solid black;
+  border: 1px solid #a60452;
   padding: 10px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  font-size: 30px;
+  font-size: 28px;
   color: #fff;
   font-weight: bold;
+  margin-bottom: 10px;
 `;
 
 export const SetDivPadrao = styled.div`

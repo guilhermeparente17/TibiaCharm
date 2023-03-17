@@ -33,8 +33,6 @@ const Sets = () => {
   const [shoes, setShoes] = useState({});
   const [amulet, setAmulet] = useState({});
   const [def, setDef] = useState({});
-  const [defPhysical, setDefPhysical] = useState();
-  const [totalDefense, setTotalDefense] = useState({});
   const [ring, setRing] = useState({});
 
   const filteredItems = Items.filter(
@@ -70,18 +68,6 @@ const Sets = () => {
     0
   );
 
-  const defTotal = items
-    .filter((objeto) => objeto.resist?.includes("defensemod"))
-    .map((objeto) => Number(objeto.resist?.match(/\D/g, "")[0]));
-
-  const totalDef = defTotal.reduce((total, value) => total + value, 0);
-
-  const physical = items
-    .filter((objeto) => objeto.resist?.includes("physical"))
-    .map((objeto) => Number(objeto.resist?.match(/\d+/)[0]));
-
-  const totalDefPhysical = physical.reduce((total, value) => total + value, 0);
-
   useEffect(() => {
     items.map((item) => item.primarytype === "Helmets" && setHelmet(item));
     items.map((item) => item.primarytype === "Armors" && setArmor(item));
@@ -98,17 +84,12 @@ const Sets = () => {
         (item.primarytype === "Spellbooks" || item.primarytype === "Shields") &&
         setDef(item)
     );
-    console.log(ring);
     setMl(totalMagicLevel);
-    setDefPhysical(totalDefPhysical);
-    setTotalDefense(totalDef);
   }, [
     items,
     totalMagicLevel,
     helmet,
     armor,
-    totalDefPhysical,
-    totalDef,
     arm,
     def,
     leg,
@@ -146,6 +127,36 @@ const Sets = () => {
     }
     setItems(novoArray);
   };
+
+  const resistances = {
+    energy: 0,
+    physical: 0,
+    ice: 0,
+    death: 0,
+    holy: 0,
+    fire: 0,
+    earth: 0,
+    // adicione mais tipos de resistência, se necessário
+  };
+
+  items.forEach((item) => {
+    item.resist?.split(",").forEach((resistance) => {
+      const type = resistance.trim().split(" ")[0];
+      const value = Number(resistance.trim().split(" ")[1].replace("%", ""));
+      resistances[type] += value;
+    });
+  });
+
+  // console.log(skills);
+
+  // Agora você pode acessar o valor de cada tipo de resistência pelo seu nome de chave:
+  const totalEnergy = resistances.energy;
+  const totalFisico = resistances.physical;
+  const totalIce = resistances.ice;
+  const totalDeath = resistances.death;
+  const totalHoly = resistances.holy;
+  const totalFire = resistances.fire;
+  const totalEarth = resistances.earth;
 
   return (
     <SetContainer>
@@ -230,10 +241,27 @@ const Sets = () => {
 
       <SetAtrib>
         {ml > 0 && <SetSpan>Magic Level: {ml}</SetSpan>}
-        {defPhysical > 0 && (
-          <SetSpan>Resistencia Física: {defPhysical}%</SetSpan>
+        {(totalFisico > 0 || totalFisico < 0) && (
+          <SetSpan>Resistencia Física: {totalFisico}%</SetSpan>
         )}
-        {totalDefense > 0 && <SetSpan>Defesa: {totalDefense}</SetSpan>}
+        {(totalDeath > 0 || totalDeath < 0) && (
+          <SetSpan>Resistencia de Morte: {totalDeath}%</SetSpan>
+        )}
+        {(totalEarth > 0 || totalEarth < 0) && (
+          <SetSpan>Resistencia de Terra: {totalEarth}%</SetSpan>
+        )}
+        {(totalFire > 0 || totalFire < 0) && (
+          <SetSpan>Resistencia de Fogo: {totalFire}%</SetSpan>
+        )}
+        {(totalHoly > 0 || totalHoly < 0) && (
+          <SetSpan>Resistencia de Sagrado: {totalHoly}%</SetSpan>
+        )}
+        {(totalIce > 0 || totalIce < 0) && (
+          <SetSpan>Resistencia de Gelo: {totalIce}%</SetSpan>
+        )}
+        {(totalEnergy > 0 || totalEnergy < 0) && (
+          <SetSpan>Resistencia de Energia: {totalEnergy}%</SetSpan>
+        )}
       </SetAtrib>
     </SetContainer>
   );
