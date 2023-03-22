@@ -5,6 +5,7 @@ import Charms from "../../data/Charms";
 import { TibiaActions } from "../../store/rootReducer";
 import TibiaSelectors from "../../store/selectors";
 import {
+  Link,
   ListRunas,
   PRButton,
   PRButtonList,
@@ -62,7 +63,9 @@ const PR = () => {
           <PRButton onClick={() => handleZerarCharm()}>Zerar</PRButton>
         </PRPontosContainer>
 
-        <PRButtonList>Listar Plano Rúnico</PRButtonList>
+        <PRButtonList>
+          <Link href="/listar-plano">listar plano rúnico</Link>
+        </PRButtonList>
       </PROptions>
 
       <ListRunas>

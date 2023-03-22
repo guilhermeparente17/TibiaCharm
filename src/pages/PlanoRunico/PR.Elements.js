@@ -147,3 +147,10 @@ export const ListRunas = styled.div`
     width: 50%;
   }
 `;
+
+export const Link = styled.a`
+  font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+`;

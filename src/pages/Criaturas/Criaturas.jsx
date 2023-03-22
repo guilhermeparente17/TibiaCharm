@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   CriatContainer,
@@ -17,6 +17,7 @@ import ImagesCreatures from "../../data/ImagesCreatures";
 const Criaturas = () => {
   const [valueSearch, setValueSearch] = useState("");
   const charm = useSelector(TibiaSelectors.charm);
+  const criaturas = useSelector(TibiaSelectors.criaturas);
 
   const criaturasComImagens = criaturasExpand.map((criatura) => {
     const url = ImagesCreatures.find(
@@ -30,6 +31,10 @@ const Criaturas = () => {
       item.name.toLowerCase().includes(valueSearch.toLowerCase()) &&
       item.bestiarylevel !== undefined
   );
+
+  useEffect(() => {
+    console.log(criaturas);
+  }, [criaturas]);
 
   return (
     <CriatContainer>

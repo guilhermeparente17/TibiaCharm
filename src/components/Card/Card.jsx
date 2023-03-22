@@ -36,8 +36,9 @@ const Card = ({
     }
   };
 
-  const handleCharm = (payload) => {
+  const handleCharm = (item, payload) => {
     dispatch(TibiaActions.add_Charm(payload));
+    dispatch(TibiaActions.addCriatura(item));
   };
 
   return (
@@ -58,7 +59,7 @@ const Card = ({
       {withButton ? (
         <Button
           text="Adicionar ao plano rúnico"
-          handleClick={() => handleCharm(charms(item.bestiarylevel))}
+          handleClick={() => handleCharm(item, charms(item.bestiarylevel))}
         />
       ) : (
         <Button handleClick={() => handleOpenModal()} text="Visualizar" />

@@ -8,6 +8,7 @@ import { Runas } from "./pages/Runas/Runas";
 import PR from "./pages/PlanoRunico/PR";
 import { Equip } from "./pages/Equipamentos/Equip";
 import Sets from "./pages/Sets/Sets";
+import ListarPlano from "./components/ListarPlano/ListarPlano";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/sets",
     element: <Sets />,
+  },
+  {
+    path: "/listar-plano",
+    element: <ListarPlano />,
   },
 ]);
 
